@@ -215,13 +215,36 @@ export function SetupPage({
         </div>
       </header>
 
+      {variant === 'fullscreen' && (
+        <nav aria-label="Setup sections" className="grid grid-cols-2 gap-2 rounded-xl border border-white/[0.08] bg-card/60 p-2 sm:grid-cols-4">
+          {[
+            { id: 'setup-content', label: '1 · Content' },
+            { id: 'setup-lineup', label: '2 · Catalogs' },
+            { id: 'setup-extras', label: '3 · Extras' },
+            { id: 'setup-access', label: '4 · Access' },
+          ].map(item => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-white/[0.05] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
+              {item.label}
+            </button>
+          ))}
+        </nav>
+      )}
+
+      <div id="setup-content" className="scroll-mt-6">
       <ContentQuestion
         content={content}
         animeSource={animeSource}
         onContentChange={handleContentChange}
         onAnimeSourceChange={setAnimeSource}
       />
+      </div>
 
+      <section id="setup-lineup" className="space-y-3 scroll-mt-6">
       {imported ? (
         <section className="space-y-3">
           <h2 className="text-lg font-medium tracking-tight">Starting lineup</h2>
@@ -245,7 +268,9 @@ export function SetupPage({
         onSelect={option => setLineupKind(option.kind)}
       />
       )}
+      </section>
 
+      <section id="setup-extras" className="space-y-6 scroll-mt-6">
       <CuratorGallery
         storedKey={config.apiKeys?.mdblist}
         catalogTTL={catalogTTL}
@@ -254,8 +279,15 @@ export function SetupPage({
         onKeyValidated={value => setEnteredKeys(previous => ({ ...previous, mdblist: value }))}
       />
 
+      <AddOnsRow
+        streamingCount={streaming.services.length}
+        onOpenStreaming={() => setStreamingOpen(true)}
+        onOpenImport={() => setImportOpen(true)}
+      />
+      </section>
+
       {(keySlots.length > 0 || coveredByInstance.length > 0) && (
-        <section className="space-y-3">
+        <section id="setup-access" className="space-y-3 scroll-mt-6">
           <h2 className="text-lg font-medium tracking-tight">Access</h2>
           {coveredByInstance.length > 0 && keySlots.length === 0 && (
             <p className="text-sm text-muted-foreground">
