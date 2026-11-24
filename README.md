@@ -29,7 +29,7 @@ Save your config and install the generated Stremio addon URL.
 
 ### 2. Self-Hosting (Docker Compose)
 
-**Quick start (recommended for a private instance):** copy `.env.setup.example`` to `.env`, set `HOST_NAME` to the address you will use, change `ADMIN_KEY` to a long random secret, then run `docker compose up -d --build`. Open `http://localhost:3232/configure` to finish configuring your addon. This repository includes a `compose.yaml` that builds the app locally and starts Redis 8 with persistent storage. It is a simple single-instance setup; use the full configuration below for hosted or advanced deployments.
+**Quick start (recommended for a private instance):** copy `.env.setup.example` to `.env`, set `HOST_NAME` to the address you will use, change `ADMIN_KEY` to a long random secret, then run `docker compose up -d --build`. Open `http://localhost:3232/configure` to finish configuring your addon. This repository includes a `compose.yaml` that builds the app locally and starts Redis 8 with persistent storage. It is a simple single-instance setup; use the full configuration below for hosted or advanced deployments.
 
 ```yaml
 services:
