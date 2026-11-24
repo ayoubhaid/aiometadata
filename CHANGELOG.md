@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.0](https://github.com/cedya77/aiometadata/compare/v4.1.0...v4.2.0) (2026-11-24)
+
+
+### Features
+
+* **collections:** send a collection's layout, All tab, hero video, merge and shuffle to AIOStreams ([d0ce043](https://github.com/cedya77/aiometadata/commit/d0ce04397b9e76a16311f7412060aede1e4b30ad))
+* **people:** let a person see everything except some tags, with catalogs and collections following one rule ([9151849](https://github.com/cedya77/aiometadata/commit/915184914cbc930aef1d3319cf35d4cae8fe4d4f))
+* **search:** stop searches a client has typed past ([32afb7a](https://github.com/cedya77/aiometadata/commit/32afb7abddc0e92429806d2e2026adb32659f168))
+* **search:** stop searches a client has typed past ([945cbe1](https://github.com/cedya77/aiometadata/commit/945cbe11410b6fb3020021605b691f87e83d1f47))
+
+
+### Bug Fixes
+
+* **anime:** open anime titles in More Like This, Similar and credits by their IMDb id when anime catalogs do ([f0153c0](https://github.com/cedya77/aiometadata/commit/f0153c0122893a2c23f0da2c535919642006ed06))
+* **cache:** pick a profile's missing art from its provider under its own language settings ([1528de1](https://github.com/cedya77/aiometadata/commit/1528de1a82d7dc8e9c42af605993a84931480667))
+* **cache:** pick a profile's missing art from its provider under its own language settings ([5fb9de8](https://github.com/cedya77/aiometadata/commit/5fb9de88e7f94fe85de8ff9c128f6c0f992a292c))
+* **configure:** carry a renamed or deleted tag over to the people using it ([8235b62](https://github.com/cedya77/aiometadata/commit/8235b62adfed090b36229845fac453ca90e41288))
+
 ## [4.1.0](https://github.com/cedya77/aiometadata/compare/v4.0.0...v4.1.0) (2026-11-18)
 
 
