@@ -152,6 +152,27 @@ export function ProvidersSettings() {
         </Callout>
       </div>
 
+      {/* Quick summary of the active provider choices */}
+      <Card className="border-primary/20 bg-primary/[0.03]">
+        <CardHeader className="pb-3">
+          <CardTitle className="text-base">Current metadata sources</CardTitle>
+          <CardDescription>Your active sources at a glance. Change any of them below.</CardDescription>
+        </CardHeader>
+        <CardContent className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {[
+            { label: 'Movies', value: movieProviders.find(p => p.value === config.providers.movie)?.label ?? config.providers.movie },
+            { label: 'Series', value: seriesProviders.find(p => p.value === config.providers.series)?.label ?? config.providers.series },
+            { label: 'Anime', value: animeProviders.find(p => p.value === config.providers.anime)?.label ?? config.providers.anime },
+          ].map(({ label, value }) => (
+            <div key={label} className="rounded-lg border bg-background/70 px-3 py-2.5">
+              <p className="text-xs text-muted-foreground">{label}</p>
+              <p className="text-sm font-medium mt-1">{value}</p>
+            </div>
+          ))}
+        </CardContent>
+      </Card>
+
+
       {/* Provider Selection Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <Card>
