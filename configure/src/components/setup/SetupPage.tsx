@@ -286,13 +286,15 @@ export function SetupPage({
       />
       </section>
 
-      {(keySlots.length > 0 || coveredByInstance.length > 0) && (
-        <section id="setup-access" className="space-y-3 scroll-mt-6">
+      <section id="setup-access" className="space-y-3 scroll-mt-6">
           <h2 className="text-lg font-medium tracking-tight">Access</h2>
           {coveredByInstance.length > 0 && keySlots.length === 0 && (
             <p className="text-sm text-muted-foreground">
               Metadata keys are covered by this instance. Nothing to do.
             </p>
+          )}
+          {keySlots.length === 0 && coveredByInstance.length === 0 && (
+            <p className="text-sm text-muted-foreground">No additional metadata keys are required for this setup.</p>
           )}
           {keySlots.map(key => (
             <div key={key} className="space-y-1.5">
@@ -307,13 +309,6 @@ export function SetupPage({
             </div>
           ))}
         </section>
-      )}
-
-      <AddOnsRow
-        streamingCount={streaming.services.length}
-        onOpenStreaming={() => setStreamingOpen(true)}
-        onOpenImport={() => setImportOpen(true)}
-      />
 
       <StickyApplyBar
         summary={summary}
